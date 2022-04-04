@@ -1,0 +1,14 @@
+<div class="container">
+  <form action="#">
+    .<div class="form-group">
+      <label for="my-input">Add Category</label>
+      <input [(ngModel)]="categoryName" name="categoryName" type="text" class="form-control mt-3" placeholder="category name">
+    </div>
+    <div class="form-group my-3">
+      <input type="file" class="form-control" name="file" (change)="select($event)">
+    </div>
+    <div class="form-group">
+      <button (click)="upload()" class="btn btn-outline-primary">Add Category</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="heading">
+    <h1>All Categories</h1>
+  </div>
+  <div *ngFor="let category of CategoryList index as i" class="row">
+    <div class="col-12 category-box">
+      <div class="category-content">
+        <span class="s-no">{{i+1}}.</span>
+        <h3 class="category-title">{{category.categoryName}}</h3>
+        <img src="{{category.categoryImage}}" alt="category image">
+        <div class="category-btn">
+          <a ><span class="category-edit">Edit</span></a>
+          <a ><span class="category-delete" (click)="deleteCategory(category._id)">Delete</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
