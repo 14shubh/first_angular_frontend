@@ -12,13 +12,14 @@ export class ViewCategoryComponent implements OnInit {
 
   CategoryList:any = '';
   constructor( private _category:CategoryService) {
-   
+
   };
 
-  public deleteCategory(categoryId:string){
+  public deleteCategory(categoryId:string,index:number){
     this._category.removeCategory(categoryId).subscribe(data=>{
       if(data){
-        this.ngOnInit();
+        this.CategoryList.splice(index,1);
+        alert("category deleted");
       }else{
         alert("can not be deleted");
       }

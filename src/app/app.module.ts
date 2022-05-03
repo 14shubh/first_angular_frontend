@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
 import {UserService} from './user.service';
 import { SignupComponent } from './signup/signup.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
@@ -17,6 +17,8 @@ import { ViewCategoryComponent } from './view-category/view-category.component';
 import { HomeComponent } from './home/home.component';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { ContactComponent } from './contact/contact.component';
+import { CategoryService } from './category.service';
+import { TokenIntercepterService } from './token-intercepter.service';
 
 
 @NgModule({
@@ -39,7 +41,13 @@ import { ContactComponent } from './contact/contact.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenIntercepterService,
+    multi:true
+  }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

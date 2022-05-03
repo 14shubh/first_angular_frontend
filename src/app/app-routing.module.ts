@@ -25,19 +25,23 @@ const routes: Routes = [
   },
   {
     path: 'add-category',
-    component: AddCategoryComponent
+    component: AddCategoryComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'view-category',
-    component: ViewCategoryComponent
+    component: ViewCategoryComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'add-product',
-    component: ProductAddComponent
+    component: ProductAddComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'contact',
-    component: ContactComponent
+    component: ContactComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
